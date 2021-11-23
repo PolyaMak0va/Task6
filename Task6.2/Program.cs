@@ -16,13 +16,22 @@ namespace Task6._2
             Console.WriteLine("Введите предложение: ");
             string startString = Console.ReadLine();
             string[] stringArray = startString.Split();
-            string resultString = "";
-            foreach (string s in stringArray)
+            string s = "";
+            foreach (string a in stringArray)
             {
-                resultString += s.Substring(0, 1).ToLower() + s.Substring(1) + s.Trim() + " ";
-
+                s += a.Substring(0, 1).ToLower() + a.Substring(1) + "";
             }
-            Console.WriteLine(resultString);
+            char[] ar = s.ToCharArray();
+            Array.Reverse(ar);
+            string revS = new String(ar);
+            if (s == revS)
+            {
+                Console.WriteLine("Данное предложение является палиндромом");
+            }
+            else
+            {
+                Console.WriteLine("Данное предложение не является палиндромом");
+            }
             Console.ReadKey();
         }
     }
