@@ -16,13 +16,23 @@ namespace Task6
             string s = Console.ReadLine();
             string[] stringArray = s.Split();
             int max = 0;
-            foreach (string a in stringArray)
+            string longWord = String.Empty;
+            foreach (string str in stringArray)
             {
-                int n = Convert.ToInt32(a.Length);
+                int n = Convert.ToInt32(str.Length);
                 if (n > max)
                     max = n;
             }
             Console.WriteLine("Количество знаков в самом длинном слове равно: {0} ", max);
+            for (int i = 0; i < stringArray.Length; i++)
+            {
+                string word = stringArray[i];
+                while (word.Length > longWord.Length)
+                {
+                    longWord = word;
+                }
+            }
+            Console.WriteLine("Cамое длинное слово в строке: {0} ", longWord);
             Console.ReadKey();
         }
     }
